@@ -266,7 +266,7 @@ export default function Page() {
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-primary">Всё прозрачно</p>
             <h2 className="text-4xl font-black tracking-[-0.03em] text-foreground sm:text-5xl">Частые вопросы</h2>
           </div>
-                  <Accordion openMultiple={false} className="mt-10">
+                  <Accordion className="mt-10">
             {faqs.map((item, index) => (
               <AccordionItem value={`item-${index}`} key={item.q} className="border-border">
                 <AccordionTrigger className="py-6 text-left text-base font-bold hover:no-underline text-foreground">{item.q}</AccordionTrigger>
