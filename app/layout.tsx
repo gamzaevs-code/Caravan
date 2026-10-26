@@ -3,9 +3,24 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'CaravanExpress — грузоперевозки по России',
-  description: 'Грузоперевозки по всей России от 1,5 до 50 тонн. Выезд сегодня, собственный автопарк, страховка груза.',
-  generator: 'v0.app',
+  title: 'Грузоперевозки по России от 1,5 до 50 т | CaravanExpress',
+  description: 'Собственный автопарк. Страховка груза. Доставка точно в срок по всей России и СНГ. Рассчитайте стоимость перевозки онлайн за 1 минуту.',
+  keywords: ['грузоперевозки', 'доставка грузов', 'перевозка фурой', 'межгород', 'карго', 'перевозка тоннажных грузов', 'логистика'],
+  openGraph: {
+    title: 'CaravanExpress — надежные грузоперевозки',
+    description: 'Перевозите от 1,5 до 50 тонн по всей России. Страховка включена.',
+    url: 'https://caravanexpress.online',
+    siteName: 'CaravanExpress',
+    images: [
+      {
+        url: 'https://caravanexpress.online/caravanexpress-logo.jpg',
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'ru_RU',
+    type: 'website',
+  },
 }
 
 export const viewport: Viewport = {
@@ -14,7 +29,17 @@ export const viewport: Viewport = {
   userScalable: true,
 }
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="ru"><body className="antialiased">{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
+export default function RootLayout({ 
+  children 
+}: Readonly<{ 
+  children: React.ReactNode 
+}>) {
+  return (
+    <html lang="ru">
+      <body className="antialiased">
+        {children}
+        {process.env.NODE_ENV === 'production' && <Analytics />}
+      </body>
+    </html>
+  )
 }
-
