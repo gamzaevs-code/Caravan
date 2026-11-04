@@ -120,8 +120,9 @@ export default function Page() {
                 <Button onClick={() => scrollTo('request')} className="h-14 rounded-xl bg-primary px-7 text-base font-bold text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105">
                   Заказать звонок <ArrowRight className="ml-2 size-5" />
                 </Button>
-                <a href="https://wa.me/79509092181" target="_blank" rel="noreferrer" className="flex h-14 items-center justify-center gap-2 rounded-xl border border-border px-6 font-bold text-foreground transition hover:bg-muted hover:scale-105">
-                  <MessageCircle className="size-5 text-green-400" /> WhatsApp
+                {/* ЗАМЕНА WHATSAPP НА MAX (Кнопка 1) */}
+                <a href="https://max.ru/u/ВАШ_НИК_В_MAX" target="_blank" rel="noreferrer" className="flex h-14 items-center justify-center gap-2 rounded-xl border border-border px-6 font-bold text-foreground transition hover:bg-muted hover:scale-105">
+                  <MessageCircle className="size-5 text-purple-500" /> MAX
                 </a>
               </div>
             </div>
@@ -256,6 +257,15 @@ export default function Page() {
                   </Button>
                   {submitted && <p className="text-center text-sm font-semibold text-green-400">Спасибо! Мы уже набираем ваш номер.</p>}
                 </div>
+                
+                <div className="my-6 flex items-center gap-3 text-xs text-muted-foreground">
+                  <span className="h-px flex-1 bg-border" /> или <span className="h-px flex-1 bg-border" />
+                </div>
+                
+                {/* ЗАМЕНА WHATSAPP НА MAX (Кнопка 2) */}
+                <a href="https://max.ru/u/ВАШ_НИК_В_MAX" target="_blank" rel="noreferrer" className="flex h-12 items-center justify-center gap-2 rounded-xl border border-purple-500/30 bg-purple-500/10 font-bold text-purple-500 transition hover:bg-purple-500/20 hover:scale-105">
+                  <MessageCircle className="size-5" /> Написать в MAX
+                </a>
               </CardContent>
             </Card>
           </div>
@@ -266,7 +276,7 @@ export default function Page() {
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.16em] text-primary">Всё прозрачно</p>
             <h2 className="text-4xl font-black tracking-[-0.03em] text-foreground sm:text-5xl">Частые вопросы</h2>
           </div>
-                  <Accordion className="mt-10">
+          <Accordion className="mt-10">
             {faqs.map((item, index) => (
               <AccordionItem value={`item-${index}`} key={item.q} className="border-border">
                 <AccordionTrigger className="py-6 text-left text-base font-bold hover:no-underline text-foreground">{item.q}</AccordionTrigger>
