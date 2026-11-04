@@ -44,6 +44,18 @@ export default function Page() {
 
   useEffect(() => {
     const timer = window.setTimeout(() => setShowIntro(false), 2600)
+    
+    // Интеграция с MAX: автозаполнение имени
+    if (typeof window !== 'undefined' && (window as any).WebApp) {
+      const webApp = (window as any).WebApp;
+      if (webApp.initDataUnsafe && webApp.initDataUnsafe.user) {
+        const maxUser = webApp.initDataUnsafe.user;
+        if (maxUser.first_name) {
+          setName(maxUser.first_name);
+        }
+      }
+    }
+
     return () => window.clearTimeout(timer)
   }, [])
 
@@ -120,7 +132,6 @@ export default function Page() {
                 <Button onClick={() => scrollTo('request')} className="h-14 rounded-xl bg-primary px-7 text-base font-bold text-primary-foreground hover:bg-primary/90 transition-transform hover:scale-105">
                   Заказать звонок <ArrowRight className="ml-2 size-5" />
                 </Button>
-                {/* ЗАМЕНА WHATSAPP НА MAX (Кнопка 1) */}
                 <a href="https://max.ru/u/ВАШ_НИК_В_MAX" target="_blank" rel="noreferrer" className="flex h-14 items-center justify-center gap-2 rounded-xl border border-border px-6 font-bold text-foreground transition hover:bg-muted hover:scale-105">
                   <MessageCircle className="size-5 text-purple-500" /> MAX
                 </a>
@@ -262,7 +273,6 @@ export default function Page() {
                   <span className="h-px flex-1 bg-border" /> или <span className="h-px flex-1 bg-border" />
                 </div>
                 
-                {/* ЗАМЕНА WHATSAPP НА MAX (Кнопка 2) */}
                 <a href="https://max.ru/u/ВАШ_НИК_В_MAX" target="_blank" rel="noreferrer" className="flex h-12 items-center justify-center gap-2 rounded-xl border border-purple-500/30 bg-purple-500/10 font-bold text-purple-500 transition hover:bg-purple-500/20 hover:scale-105">
                   <MessageCircle className="size-5" /> Написать в MAX
                 </a>

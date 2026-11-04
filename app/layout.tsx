@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -26,6 +27,13 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru">
+      <head>
+        {/* Подключаем SDK мессенджера MAX для работы Mini App */}
+        <Script 
+          src="https://st.max.ru/js/max-web-app.js" 
+          strategy="beforeInteractive" 
+        />
+      </head>
       <body className="antialiased bg-background text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
